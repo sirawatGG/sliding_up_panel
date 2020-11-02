@@ -531,6 +531,13 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProvid
     return _ac.fling(velocity: -1.0);
   }
 
+  //disable scroll
+  void _disableScroll() {
+    setState(() {
+      _scrollingEnabled = false;
+    });
+  }
+
   //open the panel
   Future<void> _open(){
     return _ac.fling(velocity: 1.0);
@@ -621,6 +628,10 @@ class PanelController{
   Future<void> close(){
     assert(isAttached, "PanelController must be attached to a SlidingUpPanel");
     return _panelState._close();
+  }
+
+  void disableScroll() {
+    return _panelState._disableScroll();
   }
 
   /// Opens the sliding panel fully
