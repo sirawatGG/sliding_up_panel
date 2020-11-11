@@ -533,6 +533,7 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProvid
 
   //disable scroll
   void _disableScroll() {
+    _sc.jumpTo(0);
     setState(() {
       _scrollingEnabled = false;
     });
